@@ -149,7 +149,7 @@ module Make (M : Testable) = struct
     let dir = "cases" / M.name in
     let str = read_file (dir / "event.json") in
     let pp = M.pp @@ M.of_string str in
-    Printf.printf "%s" pp
+    Printf.printf "%s %s" (Unix.getcwd ()) pp
 end
 
 let cmd =
